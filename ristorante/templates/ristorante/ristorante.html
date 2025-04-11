@@ -1,0 +1,49 @@
+{% extends  'ristorante/navbar.html' %}
+
+{% block content %}
+    <div class="container my-5 text-center" style="max-width:580px">
+        <h1>ristorante per Programmatori!</h1>
+        <p class="lead">ristorante
+        </p>
+
+        {% if user.is_authenticated %}
+
+            <P class="text-success">Benvenuto {{ user.username }} esplora i nostri piatti deliziosi</p>
+        {% else %}
+
+            <P class="text-danger">Accedi per esplorare i nostri piatti deliziosi</p>
+        
+
+        {% endif%}
+
+        {% comment %} <button type="button" class="btn btn-primary">Ordina Subito!</button> {% endcomment %}
+
+        <a href= "{% url 'visualizza_carrello' %}"  type="button" class="btn btn-secondary">ordina Subito</a>
+        <a href= "{% url 'contattaci' %}"  type="button" class="btn btn-secondary">Contattaci</a>
+    </div>
+
+    <div class="container">
+        <div class="row">
+
+
+            {% for piatto in ristorante %}
+            <div class="col-sm">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{piatto.immagine.url}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{piatto.name}}</h5>
+                        <p class="card-text">{{piatto.description}}</p>
+
+                        <a href= "{% url "aggiungi_al_carrello" piatto.id %}" class="btn btn-primary">Acquista {{piatto.price}}</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+
+{% comment %}   {% endcomment %}
+{% endblock content %}
+

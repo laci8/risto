@@ -1,0 +1,30 @@
+body{
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+h2{
+    color: #ffffff;
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+    padding: 20px;
+    background-color: #007bff;
+    font-weight: bold;
+}
+p{
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    background-color: #e6fbff;
+    padding: 20px;
+}
+a{
+    color: #007bff;
+    text-decoration: none;
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+}

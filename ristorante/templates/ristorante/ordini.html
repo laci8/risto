@@ -1,0 +1,43 @@
+{% extends  'ristorante/navbar.html' %}
+
+{% block title %}Ordini{% endblock title %}
+
+
+
+{% comment %} {% block title %}Ornina{% endblock title %} {% endcomment %}
+{% block content %}
+<div class="container my-5">
+    <h1 class="text-center">Riepilogo Ordini</h1>
+    {% if carrello %}
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+<th>Immagine</th>
+                    <th>Nome Piatto</th>
+                    <th>Prezzo </th>
+                </tr>
+            </thead>
+            <tbody>
+                    {% for piatto in carrello %}
+                <tr>
+                    <td><img src="{{ piatto.immagine }}" alt="{{ piatto.name }}" width="50" height="50"></td>
+                    <td>{{ piatto.name }}</td>
+                    <td>{{ piatto.price }}</td>
+                </tr>
+                {% endfor %}
+<tr>
+                    <td><strong>Totale</strong></td>
+                    <td></td>
+                    <td><strong>{{ totale }}</strong></td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Bottone Paga -->
+        <div class="text-center mt-4">
+            <a href="{% url 'paga' %}" class="btn btn-success">Paga</a>
+        </div>
+    {% else %}
+        <p class="text-center text-warning">Il carrello è vuoto. Torna indietro e aggiungi dei piatti!</p>
+    {% endif %}
+</div>
+{% endblock content %}
